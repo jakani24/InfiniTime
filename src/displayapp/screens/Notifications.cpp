@@ -234,7 +234,7 @@ namespace {
 Notifications::NotificationItem::NotificationItem(Pinetime::Controllers::AlertNotificationService& alertNotificationService,
                                                   Pinetime::Controllers::MotorController& motorController)
   : NotificationItem("Notification",
-                     "No notification to display",
+                     "No notification to display, you're free",
                      0,
                      Controllers::NotificationManager::Categories::Unknown,
                      0,

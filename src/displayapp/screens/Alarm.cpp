@@ -181,7 +181,7 @@ bool Alarm::OnTouchEvent(Pinetime::Applications::TouchEvents event) {
 }
 
 void Alarm::OnValueChanged() {
-  DisableAlarm();
+  //DisableAlarm();
   UpdateAlarmTime();
 }
 
