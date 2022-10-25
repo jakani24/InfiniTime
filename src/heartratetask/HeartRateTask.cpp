@@ -2,7 +2,7 @@
 #include <drivers/Hrs3300.h>
 #include <components/heartrate/HeartRateController.h>
 #include <nrf_log.h>
-
+//#define test
 using namespace Pinetime::Applications;
 
 HeartRateTask::HeartRateTask(Drivers::Hrs3300& heartRateSensor, Controllers::HeartRateController& controller)
@@ -38,14 +38,18 @@ void HeartRateTask::Work() {
     if (xQueueReceive(messageQueue, &msg, delay)) {
       switch (msg) {
         case Messages::GoToSleep:
-          //StopMeasurement();
+        #ifndef test
+          StopMeasurement();
+        #endif
           state = States::Idle;
           break;
         case Messages::WakeUp:
           state = States::Running;
           if (measurementStarted) {
-            //lastBpm = 0;
-            //StartMeasurement();
+            #ifndef test
+            lastBpm = 0;
+            StartMeasurement();
+            #endif
           }
           break;
         case Messages::StartMeasurement:
